@@ -7,7 +7,7 @@ if [[ ! -e /code ]]; then
 
 Eg:
 
-    docker run --rm --user $UID -itv $(pwd):/code ionelmc/manylinux-64bit
+    docker run --rm --user $UID -itv $(pwd):/code ionelmc/manylinux
 '
     exit 1
 else
