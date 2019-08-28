@@ -7,6 +7,7 @@ RUN yum install -y libffi-devel libmagic-devel libzlib-devel libfreetype6-devel 
  && rm /opt/python/cp27-cp27m
 RUN for variant in /opt/python/*; do $variant/bin/pip install cffi==1.12.3 pycparser==2.19; done \
  && rm -rf /root/.cache/pip
-RUN mkdir /wheelhouse
+RUN mkdir /wheelhouse \
+ && chmod go+rwX /wheelhouse
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
