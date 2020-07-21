@@ -1,6 +1,6 @@
 #!/bin/bash
 
-QEMU_USER_STATIC_ARCH=$([ "${BUILD_ARCH}" == "armhf" ] && echo "${BUILD_ARCH::-2}" || echo "${BUILD_ARCH}")
+QEMU_USER_STATIC_ARCH="aarch64"
 QEMU_USER_STATIC_DOWNLOAD_URL="https://github.com/multiarch/qemu-user-static/releases/download"
 QEMU_USER_STATIC_LATEST_TAG=$(curl -s https://api.github.com/repos/multiarch/qemu-user-static/tags \
     | grep 'name.*v[0-9]' \
