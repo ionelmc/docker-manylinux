@@ -2,11 +2,10 @@ FROM quay.io/pypa/manylinux2014_aarch64
 
 COPY qemu-aarch64-static /usr/bin/
 
-RUN yum install -y libffi-devel file-devel libzlib-devel libfreetype6-devel \
-                   libpng-devel libxml2-devel libxslt-devel expect-devel liblzma-devel \
-                   libenchant-devel libpq-devel libz-devel \
-                   strace gdb lsof locate net-tools htop iputils-ping dnsutils \
- && rm /opt/python/cp27-cp27m
+RUN yum install -y libffi-devel file-devel zlib-devel freetype-devel \
+                   libpng-devel libxml2-devel libxslt-devel expect-devel xz-devel \
+                   enchant-devel \
+                   strace gdb lsof mlocate net-tools htop iputils bind-utils
 RUN for variant in /opt/python/*; do $variant/bin/pip install cffi==1.14.0 pycparser==2.20; done \
  && rm -rf /root/.cache/pip
 RUN mkdir /wheelhouse \
