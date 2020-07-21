@@ -1,5 +1,7 @@
 FROM quay.io/pypa/manylinux2014_aarch64
 
+COPY qemu-aarch64-static /usr/bin/
+
 RUN yum install -y libffi-devel file-devel libzlib-devel libfreetype6-devel \
                    libpng-devel libxml2-devel libxslt-devel expect-devel liblzma-devel \
                    libenchant-devel libpq-devel libz-devel \
